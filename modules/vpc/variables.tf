@@ -1,33 +1,28 @@
-variable "cidr" {
-  description = "The CIDR block for the VPC."
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
 }
 
-variable "public_subnets_block_1" {
-  description = "List of public subnets"
-  type        = "list"
+variable "vpc_name" {
+  description = "Name tag for the VPC"
+  type        = string
 }
 
-variable "public_subnets_block_2" {
-  description = "List of public subnets"
-  type        = "list"
+variable "public_subnet_cidrs" {
+  description = "List of CIDR blocks for public subnets"
+  type        = list(string)
 }
 
-variable "environment" {
-  description = "Environment tag, e.g prod"
+variable "private_subnet_cidrs" {
+  description = "List of CIDR blocks for private subnets"
+  type        = list(string)
 }
 
-variable "name" {
-  description = "Name tag, e.g fynd-stack"
+variable "availability_zones" {
+  description = "List of availability zones"
+  type        = list(string)
 }
-
-variable "private_subnet_block_1" {
-  description = "List of private subnets"
-  type        = "list"
-}
-
-variable "nat_az_and_subnet_name" {}
-
-variable "tags" {
-  description = "common tags"
-  type = list()
+variable "project_name" {
+  description = "name of the project"
+  type = string
 }
